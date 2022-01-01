@@ -227,7 +227,6 @@ input[data-error]::after {
   width: 13px;
   height: 13px;
   background-color: #279e7a;
-  
   border-radius: 50%;
   text-indent: 29px;
   white-space: nowrap;
@@ -293,11 +292,12 @@ input[data-error]::after {
 .btn-submit,
 .btn-signup {
   background: #fe142f;
+  text-align: center;
   display: block;
   margin: 0 auto;
   border-radius: 7px;
   font-size: 1rem;
-  padding: 12px 82px;
+  padding: 12px;
   color: #fff;
   cursor: pointer;
   border: 0;
@@ -597,6 +597,8 @@ label, .text-control{
   font-size: 12px;
 }
 .btn-submit{
+  font-size: 14px;
+  padding: 8px 0px;
   margin-top: 15px;
 }
 }

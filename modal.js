@@ -20,4 +20,16 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
+//......MON JAVA SCRIPT....
+
+const modalclose = document.querySelector(".close");
+
+modalclose.addEventListener("click", accueil);
+
+function accueil() {
+  modalbg.style.display = "none";
+}
+
+
+
 
