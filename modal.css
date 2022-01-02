@@ -297,7 +297,7 @@ input[data-error]::after {
   margin: 0 auto;
   border-radius: 7px;
   font-size: 1rem;
-  padding: 12px;
+  padding: 12px 30px;
   color: #fff;
   cursor: pointer;
   border: 0;
@@ -552,11 +552,11 @@ footer {
     font-size: 35px;
     font-weight: 600;
     text-align: start;
-    margin-top: -20px;
+    margin-top: 0px;
     margin-left: -22px;
   }
   .hero-text{
-    font-size: 11px;
+    font-size: 12px;
     margin-left: -20px;
     width: 100%;
   }
@@ -564,14 +564,13 @@ footer {
     margin-top: -20px;
   }
   .hero-section .btn-signup{
-    margin-top: 350px;
+    margin-top: 370px;
     margin-left: 60px;
     font-size: 16px;
     
   }
   .copyrights{
-    font-size: 12px;
-    margin-top: -60px;
+    font-size: 12px
   }
 /*............FORMULAIRE..........*/
 .bground{
@@ -598,7 +597,7 @@ label, .text-control{
 }
 .btn-submit{
   font-size: 14px;
-  padding: 8px 0px;
+  padding: 8px 40px;
   margin-top: 15px;
 }
 }
