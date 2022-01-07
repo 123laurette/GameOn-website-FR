@@ -28,143 +28,93 @@ modalclose.addEventListener("click", accueil);
 
 function accueil() {
   modalbg.style.display = "none";
+  document.getElementsById("form"), reset();
 }
 //**********************************************/
 //  VERIF DU FORMULAIRE
 let validation = document.getElementById("valider");
 
 //***********************************************/
-// CREATION DES VARIABLES PRENOM
+// VERIFICATION PRENOM
 let prenom = document.getElementById("first");
-let prenom_m = document.getElementById("prenom_manquant");
-let prenom_v = /^[a-zA-Z-\s]+$/;
 
-// CREATION DE L'EVENEMENT
-validation.addEventListener("click",valid_prenom);
+prenom.addEventListener("change",valid_prenom);
 
-// CREATION DE LA FONCTION
-function valid_prenom(e){
-  if(prenom.validity.valueMissing){
-    e.preventDefault();
-    prenom_m.textContent="Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
-    prenom_m.style.color = "red";
-    prenom_m.style.fontSize = "12px";}
-  else if (prenom_v.test(prenom.value) == false){
-    e.preventDefault();
-    prenom_m.textContent="Format incorrect";
-    prenom_m.style.color = "yellow";
-    prenom_m.style.fontSize = "12px";}
-  else {}  
+function valid_prenom(inputFirst){
+let prenom_v = new RegExp('^[a-zA-Z-\s]+$');
+let testPrenom = prenom_v.test(inputFirst.value)
+
+  if(testPrenom || (inputFirst.value == "")){
+    prenom.parentElement.setAttribute("data-error-visible", "true");
+    prenom.parentElement.setAttribute("data-error", "Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
+    return false;
+}else{
+    prenom.parentElement.setAttribute("data-error-visible", "false");
+    prenom.parentElement.setAttribute("data-error", "");
+    return true;
+}
 }
 //**********************************************/
-// CREATION DES VARIABLES NOM
-
+//***********************************************/
+// VERIFICATION NOM
 let nom = document.getElementById("last");
-let nom_m = document.getElementById("nom_manquant");
-let nom_v = /^[a-zA-Z-\s]+$/;
 
-// CREATION DE L'EVENEMENT
-validation.addEventListener("click",valid_nom);
+nom.addEventListener("change",valid_nom);
 
-// CREATION DE LA FONCTION
-function valid_nom(e){
-  if(nom.validity.valueMissing){
-    e.preventDefault();
-    nom_m.textContent="Veuillez entrer 2 caractères ou plus pour le champ du nom.";
-    nom_m.style.color = "red";
-    nom_m.style.fontSize = "12px";}
-  else if (nom_v.test(nom.value) == false){
-    e.preventDefault();
-    nom_m.textContent="Format incorrect";
-    nom_m.style.color = "yellow";
-    nom_m.style.fontSize = "12px";}
-  else {}  
+function valid_nom(inputLast){
+let nom_v = new RegExp('^[a-zA-Z-\s]+$');
+let testNom = nom_v.test(inputLast.value)
+
+  if(testNom || (inputLast.value == "")){
+    nom.parentElement.setAttribute("data-error-visible", "true");
+    nom.parentElement.setAttribute("data-error", "Veuillez entrer 2 caractères ou plus pour le champ du nom.");
+    return false;
+}else{
+    nom.parentElement.setAttribute("data-error-visible", "false");
+    nom.parentElement.setAttribute("data-error", "");
+    return true;
+}
 }
 //**********************************************/
-// CREATION DES VARIABLES EMAIL
-
+//***********************************************/
+// VERIFICATION EMAIL
 let email = document.getElementById("email");
-let email_m = document.getElementById("email_manquant");
-let email_v = /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$/;
 
-// CREATION DE L'EVENEMENT
-validation.addEventListener("click",valid_email);
+email.addEventListener("change",valid_email);
 
-// CREATION DE LA FONCTION
-function valid_email(e){
-  if(email.validity.valueMissing){
-    e.preventDefault();
-    email_m.textContent="Veuillez entrer votre adresse email.";
-    email_m.style.color = "red";
-    email_m.style.fontSize = "12px";}
-  else if (email_v.test(email.value) == false){
-    e.preventDefault();
-    email_m.textContent="Format incorrect";
-    email_m.style.color = "yellow";
-    email_m.style.fontSize = "12px";}
-  else {}  
+function valid_email(inputEmail){
+let email_v = new RegExp('^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$');
+let testEmail = email_v.test(inputEmail.value)
+
+  if(!testEmail || (inputEmail.value == "")){
+    email.parentElement.setAttribute("data-error-visible", "true");
+    email.parentElement.setAttribute("data-error", "Veuillez vérifier votre adresse éléctronique.");
+    return false;
+}else{
+    email.parentElement.setAttribute("data-error-visible", "false");
+    email.parentElement.setAttribute("data-error", "");
+    return true;
 }
-
+}
 //**********************************************/
-// CREATION DES VARIABLES DATE ANNIVERSAIRE
-
+//***********************************************/
+// VERIFICATION DATE DE NAISSANCE
 let ddn = document.getElementById("birthdate");
-let ddn_m = document.getElementById("ddn_manquante");
 
-// CREATION DE L'EVENEMENT
-validation.addEventListener("click",valid_ddn);
+ddn.addEventListener("change",valid_ddn);
 
-// CREATION DE LA FONCTION
-function valid_ddn(e){
-  if(ddn.validity.valueMissing){
-    e.preventDefault();
-    ddn_m.textContent="Vous devez entrer votre date de naissance.";
-    ddn_m.style.color = "red";
-    ddn_m.style.fontSize = "12px";}
-  else {}  
+function valid_ddn(inputBirthdate){
+let ddn_v = new RegExp('^[0-9]+$');
+let testDdn = ddn_v.test(inputBirthdate.value)
+
+  if(!testDdn || (inputBirthdate.value == "")){
+    ddn.parentElement.setAttribute("data-error-visible", "true");
+    ddn.parentElement.setAttribute("data-error", "Vous devez entrer votre date de naissance en format JJ/MM/AAAA.");
+    return false;
+}else{
+    ddn.parentElement.setAttribute("data-error-visible", "false");
+    ddn.parentElement.setAttribute("data-error", "");
+    return true;
 }
-
+}
 //**********************************************/
-// CREATION DES VARIABLES NBRE DE TOURNOIS
-
-let nbre = document.getElementById("quantity");
-let nbre_m = document.getElementById("nbre_manquant");
-
-// CREATION DE L'EVENEMENT
-validation.addEventListener("click",valid_nbre);
-
-// CREATION DE LA FONCTION
-function valid_nbre(e){
-  if(nbre.validity.valueMissing){
-    e.preventDefault();
-    nbre_m.textContent="Vous devez remplir ce champ.";
-    nbre_m.style.color = "red";
-    nbre_m.style.fontSize = "12px";}
-  else {}  
-}
-
-
-//                      A REVOIR **************************************
-
-//**********************************************/
-// CREATION DES VARIABLES CHOIX DES VILLES
-
-let choix_ville = document.getElementsByClassName("checkbox-icon");
-let choix_m = document.getElementById("ville");
-
-// CREATION DE L'EVENEMENT
-validation.addEventListener("click",valid_choix);
-
-// CREATION DE LA FONCTION
-function valid_choix(e){
-  if(choix_ville.validity.valueMissing){
-    e.preventDefault();
-    choix_m.textContent="Vous devez choisir une option.";
-    choix_m.style.color = "red";
-    choix_m.style.fontSize = "12px";}
-  else {}  
-}
-
-
-
-
