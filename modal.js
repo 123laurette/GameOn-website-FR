@@ -30,15 +30,12 @@ function accueil() {
   modalbg.style.display = "none";
   document.getElementsById("form"), reset();
 }
-//**********************************************/
-//  VERIF DU FORMULAIRE
-let validation = document.getElementById("valider");
 
 //***********************************************/
 // VERIFICATION PRENOM
 let prenom = document.getElementById("first");
 
-prenom.addEventListener("change",valid_prenom);
+prenom.addEventListener("focusout",valid_prenom);
 
 function valid_prenom(inputFirst){
 let prenom_v = new RegExp('^[a-zA-Z-\s]+$');
@@ -59,7 +56,7 @@ let testPrenom = prenom_v.test(inputFirst.value)
 // VERIFICATION NOM
 let nom = document.getElementById("last");
 
-nom.addEventListener("change",valid_nom);
+nom.addEventListener("focusout",valid_nom);
 
 function valid_nom(inputLast){
 let nom_v = new RegExp('^[a-zA-Z-\s]+$');
@@ -80,7 +77,7 @@ let testNom = nom_v.test(inputLast.value)
 // VERIFICATION EMAIL
 let email = document.getElementById("email");
 
-email.addEventListener("change",valid_email);
+email.addEventListener("focusout",valid_email);
 
 function valid_email(inputEmail){
 let email_v = new RegExp('^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$');
@@ -101,7 +98,7 @@ let testEmail = email_v.test(inputEmail.value)
 // VERIFICATION DATE DE NAISSANCE
 let ddn = document.getElementById("birthdate");
 
-ddn.addEventListener("change",valid_ddn);
+ddn.addEventListener("focusout",valid_ddn);
 
 function valid_ddn(inputBirthdate){
 let ddn_v = new RegExp('^[0-9]+$');
@@ -118,3 +115,20 @@ let testDdn = ddn_v.test(inputBirthdate.value)
 }
 }
 //**********************************************/
+//VERIFICATION DES BOUTONS RADIOS
+let choix_btn = document.getElementsByClassName("checkbox-input");
+
+choix_btn.addEventListener("focusout", valid_btn);
+
+function valid_btn(){
+  let radio = document.getElementsByName("location");
+  let radioValid = false;
+  let i = 0;
+
+  while (!radioValid && i<radio.length){
+    if(radio[i].checked) radioValid=true;
+    i++;
+  }
+  if(!radioValid) alert("Vous devez choisir une option");
+  return radioValid;
+}
