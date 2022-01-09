@@ -39,9 +39,9 @@ prenom.addEventListener("focusout",valid_prenom);
 
 function valid_prenom(inputFirst){
 let prenom_v = new RegExp('^[a-zA-Z-\s]+$');
-let testPrenom = prenom_v.test(inputFirst.value)
+let testPrenom = prenom_v.test(first.value)
 
-  if(testPrenom || (inputFirst.value == "")){
+  if(!testPrenom){
     prenom.parentElement.setAttribute("data-error-visible", "true");
     prenom.parentElement.setAttribute("data-error", "Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
     return false;
@@ -60,9 +60,9 @@ nom.addEventListener("focusout",valid_nom);
 
 function valid_nom(inputLast){
 let nom_v = new RegExp('^[a-zA-Z-\s]+$');
-let testNom = nom_v.test(inputLast.value)
+let testNom = nom_v.test(last.value)
 
-  if(testNom || (inputLast.value == "")){
+  if(!testNom){
     nom.parentElement.setAttribute("data-error-visible", "true");
     nom.parentElement.setAttribute("data-error", "Veuillez entrer 2 caractères ou plus pour le champ du nom.");
     return false;
@@ -81,9 +81,9 @@ email.addEventListener("focusout",valid_email);
 
 function valid_email(inputEmail){
 let email_v = new RegExp('^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$');
-let testEmail = email_v.test(inputEmail.value)
+let testEmail = email_v.test(email.value)
 
-  if(!testEmail || (inputEmail.value == "")){
+  if(!testEmail){
     email.parentElement.setAttribute("data-error-visible", "true");
     email.parentElement.setAttribute("data-error", "Veuillez vérifier votre adresse éléctronique.");
     return false;
@@ -101,12 +101,12 @@ let ddn = document.getElementById("birthdate");
 ddn.addEventListener("focusout",valid_ddn);
 
 function valid_ddn(inputBirthdate){
-let ddn_v = new RegExp('^[0-9]+$');
-let testDdn = ddn_v.test(inputBirthdate.value)
+let ddn_v = new RegExp('^[0-9/]+$');
+let testDdn = ddn_v.test(birthdate.value)
 
-  if(!testDdn || (inputBirthdate.value == "")){
+  if(!testDdn){
     ddn.parentElement.setAttribute("data-error-visible", "true");
-    ddn.parentElement.setAttribute("data-error", "Vous devez entrer votre date de naissance en format JJ/MM/AAAA.");
+    ddn.parentElement.setAttribute("data-error", "Vous devez entrer votre date de naissance.");
     return false;
 }else{
     ddn.parentElement.setAttribute("data-error-visible", "false");
@@ -125,10 +125,24 @@ function valid_btn(){
   let radioValid = false;
   let i = 0;
 
-  while (!radioValid && i<radio.length){
+  while (radioValid && i<radio.length){
     if(radio[i].checked) radioValid=true;
     i++;
   }
   if(!radioValid) alert("Vous devez choisir une option");
   return radioValid;
 }
+//*************************************************/
+// VALIDATION DU FORMULAIRE GENERAL             A REVOIR
+let formulaire = document.getElementsById("valider");
+
+formulaire.addEventListener("click", formValid)
+
+  function formValid(e){
+    
+    if (testPrenom(valid_prenom)
+      && testNom(valid_nom)
+      && testEmail(valid_email)
+      && testDdn(valid_ddn)){
+      formulaire.submit();}
+  }

@@ -439,6 +439,15 @@ input[data-error]::after {
 .hero-section > .btn-signup {
   display: none;
 }
+/*..........MODAL2..............*/
+
+
+
+
+
+
+
+
 /*............FOOTER............*/
 
 footer {
@@ -577,7 +586,7 @@ footer {
 }
 .content{
   margin-top: 70px;
-  height: 770px;
+  height: 800px;
 }
 label, .text-label{
   font-size: 14px;
