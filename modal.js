@@ -28,7 +28,6 @@ modalclose.addEventListener("click", accueil);
 
 function accueil() {
   modalbg.style.display = "none";
-  document.getElementsById("form"), reset();
 }
 
 //***********************************************/
@@ -140,7 +139,7 @@ function valid_cg(){
   }
 //**************************************************/
 // VALIDATION DU FORMULAIRE GENERAL 
-let btn_modal = document.getElementById("button");
+let btn_modal = document.getElementById("envoyer");
 
 btn_modal.addEventListener("submit",validation_modal)
 
@@ -166,10 +165,18 @@ function validation_modal(e){
   if (!cg_v()){
     validation = false;
   }
-  if(validation = false){e= preventDefault(); alert("veuillez verifier le formulaire")}
+  if(validation = false){e= preventDefault();}
   else{
-    btn_modal.reset();            //efface le formulaire si ok
-    btn_modal.style.display = "none";   //ferme la modale si ok
-    btn_modal.alert("c'est bon");
+    //btn_modal.reset();            //efface le formulaire si ok
   }  
+}
+
+
+let modal2btn = document.querySelector("#envoyer[input]");
+let modal2 = document.querySelector(".modal2");
+
+modal2btn.addEventListener("click", ouvertureModal2 );
+function ouvertureModal2(){
+  modalbg.style.display = "none";
+  modal2.style.display = "block";
 }

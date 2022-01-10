@@ -441,6 +441,47 @@ input[data-error]::after {
 }
 /*..........MODAL2..............*/
 
+#fermer input{
+  background: #fe142f;
+  margin-top: 0.5em;
+  padding: 15px;
+  color: #fff;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#fermer:hover {
+  background: #3876ac;
+}
+
+.modal2 {
+  width: 100%;
+  max-width: 570px;
+  height: 800px;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  background: #232323;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+}
+.modal2-body{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding-top: 200px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
+  border: blue solid;
+}
+  
+  .modal2{
+    display: block;
+  }
 
 
 
@@ -522,9 +563,7 @@ footer {
     margin-top: 0px;
     text-align: center;
   }
-  .bground{
-    background-color: transparent;
-  }
+  
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
