@@ -107,8 +107,8 @@ let testDdn = ddn_v.test(birthdate.value)
   if(!testDdn){
     ddn.parentElement.setAttribute("data-error-visible", "true");
     ddn.parentElement.setAttribute("data-error", "Vous devez entrer votre date de naissance.");
-    return false;
-}else{
+    return false;}
+  else{
     ddn.parentElement.setAttribute("data-error-visible", "false");
     ddn.parentElement.setAttribute("data-error", "");
     return true;
@@ -116,33 +116,60 @@ let testDdn = ddn_v.test(birthdate.value)
 }
 //**********************************************/
 //VERIFICATION DES BOUTONS RADIOS
-let choix_btn = document.getElementsByClassName("checkbox-input");
+let ville = document.getElementsByClassName("checkbox-input");
 
-choix_btn.addEventListener("focusout", valid_btn);
+let ville_v = ville.checked=true;
 
-function valid_btn(){
-  let radio = document.getElementsByName("location");
-  let radioValid = false;
-  let i = 0;
+ville.addEventListener("onclick", valid_ville);
 
-  while (radioValid && i<radio.length){
-    if(radio[i].checked) radioValid=true;
-    i++;
-  }
-  if(!radioValid) alert("Vous devez choisir une option");
-  return radioValid;
+function valid_ville(){
+for (let i=0; 1< ville.length; i++){
+  if(!ville_v)(alert ("Vous devez choisir une option"));
+  return false;}
 }
 //*************************************************/
-// VALIDATION DU FORMULAIRE GENERAL             A REVOIR
-let formulaire = document.getElementsById("valider");
+//CONDITIONS GENERALES
+let cg = document.getElementById("checkbox1")
+let cg_v = cg.checked
 
-formulaire.addEventListener("click", formValid)
-
-  function formValid(e){
-    
-    if (testPrenom(valid_prenom)
-      && testNom(valid_nom)
-      && testEmail(valid_email)
-      && testDdn(valid_ddn)){
-      formulaire.submit();}
+function valid_cg(){
+  if(!cg_v){
+    (alert ("Vous devez vérifier que vous acceptez les termes et conditions"));
+    return false;}
+  else{}
   }
+//**************************************************/
+// VALIDATION DU FORMULAIRE GENERAL 
+let btn_modal = document.getElementById("button");
+
+btn_modal.addEventListener("submit",validation_modal)
+
+
+function validation_modal(e){
+  let validation = true
+
+  if (!testPrenom()){
+    validation = false;
+  }
+  if (!testNom()){
+    validation = false;
+  }
+  if (!testEmail()){
+    validation = false;
+  }
+  if (!testDdn()){
+    validation = false;
+  }
+  if (!ville_v()){
+    validation = false;
+  }
+  if (!cg_v()){
+    validation = false;
+  }
+  if(validation = false){e= preventDefault(); alert("veuillez verifier le formulaire")}
+  else{
+    btn_modal.reset();            //efface le formulaire si ok
+    btn_modal.style.display = "none";   //ferme la modale si ok
+    btn_modal.alert("c'est bon");
+  }  
+}
