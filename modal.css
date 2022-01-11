@@ -461,7 +461,6 @@ input[data-error]::after {
   height: 800px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
-  background: #232323;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
@@ -471,24 +470,16 @@ input[data-error]::after {
   display: flex;
   height: 100%;
   width: 100%;
-  padding-top: 200px;
+  margin-bottom: 1000px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   justify-content: space-around;
-  border: blue solid;
 }
-  
-  .modal2{
-    display: block;
-  }
 
-
-
-
-
-
-
+.modal2{
+  display: block;
+}
 
 /*............FOOTER............*/
 

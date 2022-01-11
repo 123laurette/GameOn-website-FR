@@ -97,15 +97,15 @@ let testEmail = email_v.test(email.value)
 // VERIFICATION DATE DE NAISSANCE
 let ddn = document.getElementById("birthdate");
 
-ddn.addEventListener("focusout",valid_ddn);
+ddn.addEventListener("change",valid_ddn);
 
 function valid_ddn(inputBirthdate){
-let ddn_v = new RegExp('^[0-9/]+$');
+let ddn_v = new RegExp('^[0-9]{2}[/]{1}[0-9]{2}[/]{1}[0-9]{4}$');
 let testDdn = ddn_v.test(birthdate.value)
 
   if(!testDdn){
     ddn.parentElement.setAttribute("data-error-visible", "true");
-    ddn.parentElement.setAttribute("data-error", "Vous devez entrer votre date de naissance.");
+    ddn.parentElement.setAttribute("data-error", "Vous devez entrer votre date de naissance au format JJ/MM/AAAA");
     return false;}
   else{
     ddn.parentElement.setAttribute("data-error-visible", "false");
@@ -165,18 +165,19 @@ function validation_modal(e){
   if (!cg_v()){
     validation = false;
   }
-  if(validation = false){e= preventDefault();}
+  if(validation = false){e.preventDefault();}
   else{
     //btn_modal.reset();            //efface le formulaire si ok
   }  
 }
 
 
-let modal2btn = document.querySelector("#envoyer[input]");
-let modal2 = document.querySelector(".modal2");
+let modal2btn = document.getElementsByClassName(".btn-submit[input]");
+let modal1 = document.getElementsByClassName("modal-body");
+let modal2 = document.getElementsByClassName("modal2");
 
-modal2btn.addEventListener("click", ouvertureModal2 );
+modal2btn.addEventListener("submit", ouvertureModal2 );
 function ouvertureModal2(){
-  modalbg.style.display = "none";
+  modal1.style.display = "none";
   modal2.style.display = "block";
 }
