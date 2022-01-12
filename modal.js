@@ -138,9 +138,9 @@ function valid_cg(){
   else{}
   }
 //**************************************************/
-//OUVERTURE DE LA MODAL
+//OUVERTURE DE LA MODAL 2
 
-let modal2btn = document.getElementsByClassName("btn-submit[input]");
+let modal2btn = document.getElementById("envoyer");
 let modal1 = document.querySelector(".modal-body");
 let modal2 = document.querySelector(".modal2");
 
@@ -149,4 +149,14 @@ modal2btn.addEventListener("click", ouvertureModal2 );
 function ouvertureModal2(){
   modal1.style.display = "none";
   modal2.style.display = "block";
+}
+//**************************************************/
+//FERMETURE DE LA MODAL 2
+const modalclose2 = document.querySelector("#fermer");
+
+modalclose2.addEventListener("click", fini);
+
+function fini() {
+  modal2.style.display = "none";
+  modalbg.style.display = "none";
 }
