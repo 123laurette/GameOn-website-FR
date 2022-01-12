@@ -115,10 +115,10 @@ let testDdn = ddn_v.test(birthdate.value)
 }
 //**********************************************/
 //VERIFICATION DES BOUTONS RADIOS
-let ville = document.getElementsByClassName("checkbox-input");
+let ville = document.querySelectorAll("input[type=radio]");
 let ville_v = false;
 let i = 0;
-
+console.log (ville)
 function valid_ville(){
 while (!ville_v && i< ville.length){
   if(!ville[i].checked) ville_v=true;
@@ -146,10 +146,10 @@ let modal2 = document.querySelector(".modal2");
 
 modal2btn.addEventListener("click", ouvertureModal2 );
 
-function ouvertureModal2(){
-  modal1.style.display = "none";
-  modal2.style.display = "block";
-}
+function ouvertureModal2(e){
+    modal1.style.display = "none";
+    modal2.style.display = "block";}
+  
 //**************************************************/
 //FERMETURE DE LA MODAL 2
 const modalclose2 = document.querySelector("#fermer");
@@ -157,7 +157,5 @@ const modalclose2 = document.querySelector("#fermer");
 modalclose2.addEventListener("click", fini);
 
 function fini() {
-  modal2.style.display = "none";
-  modalbg.style.display = "none";
   window.location.reload();
 }
