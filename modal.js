@@ -159,4 +159,5 @@ modalclose2.addEventListener("click", fini);
 function fini() {
   modal2.style.display = "none";
   modalbg.style.display = "none";
+  window.location.reload();
 }
