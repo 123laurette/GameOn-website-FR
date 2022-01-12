@@ -116,20 +116,20 @@ let testDdn = ddn_v.test(birthdate.value)
 //**********************************************/
 //VERIFICATION DES BOUTONS RADIOS
 let ville = document.getElementsByClassName("checkbox-input");
-
-let ville_v = ville.checked=true;
-
-ville.addEventListener("onclick", valid_ville);
+let ville_v = false;
+let i = 0;
 
 function valid_ville(){
-for (let i=0; 1< ville.length; i++){
-  if(!ville_v)(alert ("Vous devez choisir une option"));
-  return false;}
-}
+while (!ville_v && i< ville.length){
+  if(!ville[i].checked) ville_v=true;
+  i++;}
+if(!ville_v) alert ("Vous devez choisir une option");
+  return ville_v;}
+  
 //*************************************************/
 //CONDITIONS GENERALES
-let cg = document.getElementById("checkbox1")
-let cg_v = cg.checked
+let cg = document.getElementById("checkbox1");
+let cg_v = cg.checked;
 
 function valid_cg(){
   if(!cg_v){
@@ -138,45 +138,14 @@ function valid_cg(){
   else{}
   }
 //**************************************************/
-// VALIDATION DU FORMULAIRE GENERAL 
-let btn_modal = document.getElementById("envoyer");
+//OUVERTURE DE LA MODAL
 
-btn_modal.addEventListener("submit",validation_modal)
+let modal2btn = document.getElementsByClassName("btn-submit[input]");
+let modal1 = document.querySelector(".modal-body");
+let modal2 = document.querySelector(".modal2");
 
+modal2btn.addEventListener("click", ouvertureModal2 );
 
-function validation_modal(e){
-  let validation = true
-
-  if (!testPrenom()){
-    validation = false;
-  }
-  if (!testNom()){
-    validation = false;
-  }
-  if (!testEmail()){
-    validation = false;
-  }
-  if (!testDdn()){
-    validation = false;
-  }
-  if (!ville_v()){
-    validation = false;
-  }
-  if (!cg_v()){
-    validation = false;
-  }
-  if(validation = false){e.preventDefault();}
-  else{
-    //btn_modal.reset();            //efface le formulaire si ok
-  }  
-}
-
-
-let modal2btn = document.getElementsByClassName(".btn-submit[input]");
-let modal1 = document.getElementsByClassName("modal-body");
-let modal2 = document.getElementsByClassName("modal2");
-
-modal2btn.addEventListener("submit", ouvertureModal2 );
 function ouvertureModal2(){
   modal1.style.display = "none";
   modal2.style.display = "block";
