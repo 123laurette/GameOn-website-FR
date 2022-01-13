@@ -120,7 +120,7 @@ let testDdn = ddn_v.test(birthdate.value)
 let ville = document.querySelectorAll("input[type=radio]");
 let ville_v = false;
 let i = 0;
-console.log (ville)
+
 function valid_ville(){
 while (!ville_v && i< ville.length){
   if(!ville[i].checked) ville_v=true;
@@ -132,7 +132,7 @@ if(!ville_v) alert ("Vous devez choisir une option");
 //CONDITIONS GENERALES
 let cg = document.getElementById("checkbox1");
 let cg_v = cg.checked;
-
+console.log (cg_v)
 function valid_cg(){
   if(!cg_v){
     (alert ("Vous devez vérifier que vous acceptez les termes et conditions"));
@@ -153,7 +153,7 @@ function ouvertureModal2(){
     {modal1.style.display = "none";
     modal2.style.display = "block";
     document.getElementById("formulaire").reset();}}
-  
+ 
 //**************************************************/
 //FERMETURE DE LA MODAL 2
 let modalclose2 = document.getElementById("fermer");
