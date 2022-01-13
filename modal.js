@@ -137,7 +137,7 @@ function valid_cg(){
   if(!cg_v){
     (alert ("Vous devez vérifier que vous acceptez les termes et conditions"));
     return true;}
-  else{return false;}
+  else{return false}
   }
 //**************************************************/
 //OUVERTURE DE LA MODAL 2
@@ -149,7 +149,7 @@ let modal2 = document.querySelector(".modal2");
 modal1btn.addEventListener("click", ouvertureModal2 );
 
 function ouvertureModal2(){
-  if(valid_prenom && valid_nom & valid_email & valid_ddn & valid_ville & valid_cg)
+  if(valid_prenom & valid_nom & valid_email & valid_ddn & valid_ville & valid_cg)
     {modal1.style.display = "none";
     modal2.style.display = "block";
     document.getElementById("formulaire").reset();}}
