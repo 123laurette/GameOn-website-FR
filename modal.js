@@ -18,6 +18,8 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
+  modal1.style.display = "block";
+  modal2.style.display = "none";
 }
 
 //......MON JAVA SCRIPT....
@@ -103,7 +105,7 @@ function valid_ddn(inputBirthdate){
 let ddn_v = new RegExp('^[0-9]{2}[/]{1}[0-9]{2}[/]{1}[0-9]{4}$');
 let testDdn = ddn_v.test(birthdate.value)
 
-  if(!testDdn){
+  if((!testDdn) || (ddn.value =="")){
     ddn.parentElement.setAttribute("data-error-visible", "true");
     ddn.parentElement.setAttribute("data-error", "Vous devez entrer votre date de naissance au format JJ/MM/AAAA");
     return false;}
@@ -134,28 +136,26 @@ let cg_v = cg.checked;
 function valid_cg(){
   if(!cg_v){
     (alert ("Vous devez vérifier que vous acceptez les termes et conditions"));
-    return false;}
-  else{}
+    return true;}
+  else{return false;}
   }
 //**************************************************/
 //OUVERTURE DE LA MODAL 2
 
-let modal2btn = document.getElementById("envoyer");
+let modal1btn = document.getElementById("envoyer");
 let modal1 = document.querySelector(".modal-body");
 let modal2 = document.querySelector(".modal2");
 
-modal2btn.addEventListener("click", ouvertureModal2 );
+modal1btn.addEventListener("click", ouvertureModal2 );
 
-function ouvertureModal2(e){
-    modal1.style.display = "none";
-    modal2.style.display = "block";}
+function ouvertureModal2(){
+  if(valid_prenom && valid_nom & valid_email & valid_ddn & valid_ville & valid_cg)
+    {modal1.style.display = "none";
+    modal2.style.display = "block";
+    document.getElementById("formulaire").reset();}}
   
 //**************************************************/
 //FERMETURE DE LA MODAL 2
-const modalclose2 = document.querySelector("#fermer");
+let modalclose2 = document.getElementById("fermer");
 
-modalclose2.addEventListener("click", fini);
-
-function fini() {
-  window.location.reload();
-}
+modalclose2.addEventListener("click", accueil);
