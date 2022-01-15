@@ -115,54 +115,34 @@ let testDdn = ddn_v.test(birthdate.value)
     return true;
 }
 }
-//**********************************************/
+//*************************************************/
 //VERIFICATION DES BOUTONS RADIOS
 let ville = document.querySelectorAll("input[type=radio]");
 let ville_v = true;
 let i = 0;
 
 function valid_ville(){
-  while (i< ville.length){
+  while (i<ville.length){
     if(ville.checked)
     return true}
-  if(!ville.checked){ 
-    ville.parentElement.setAttribute("data-error-visible", "true");
-    ville.parentElement.setAttribute("data-error", "Vous devez choisir une option.");
-    return false;}
+    if(!ville.checked){
+      ville.parentElement.setAttribute("data-error-visible", "true");
+      ville.parentElement.setAttribute("data-error", "Vous devez choisir une option.");
+      return false;
+    }
 }
-//*************************************************/
-//CONDITIONS GENERALES
+//***************************************************/
+// CONDITIONS GENERALES
 let cg = document.getElementById("checkbox1");
 
 function valid_cg(){
-  
-  if(!cg.checked){ 
+
+  if(!cg.checked){
     cg.parentElement.setAttribute("data-error-visible", "true");
     cg.parentElement.setAttribute("data-error", "Vous devez vérifier que vous acceptez les termes et conditions.");
     return false;}
   else{
     cg.parentElement.setAttribute("data-error-visible", "false");
     cg.parentElement.setAttribute("data-error", "");
-    return true;
-  } 
-  }
-//**************************************************/
-//OUVERTURE DE LA MODAL 2
-
-let modal1btn = document.getElementById("envoyer");
-let modal1 = document.querySelector(".modal-body");
-let modal2 = document.querySelector(".modal2");
-
-modal1btn.addEventListener("click", ouvertureModal2 );
-
-function ouvertureModal2(){
-  if(valid_prenom() && valid_nom() && valid_email() && valid_ddn() && valid_ville() && valid_cg()==true)
-    {modal1.style.display = "none";
-    modal2.style.display = "block";
-    document.getElementById("formulaire").reset();}}
- 
-//**************************************************/
-//FERMETURE DE LA MODAL 2
-let modalclose2 = document.getElementById("fermer");
-
-modalclose2.addEventListener("click", accueil);
+    return true;}
+}
