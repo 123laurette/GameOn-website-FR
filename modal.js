@@ -122,16 +122,14 @@ let ville_v = false
 let i = 0;
 
 function valid_ville(){
-  while (!ville_v && i<ville.length){
-    if(ville[i].checked)
-    ville_v = true;
-    i++;}
+  while (!ville_v && i<=5){
+    if(ville[i].checked){
+    i++;
+  return true;}
     if(!ville_v){
-      ville.parentElement.setAttribute("data-error-visible", "true");
-      ville.parentElement.setAttribute("data-error", "Vous devez choisir une option.");
-      return ville_v;
-    }
-}
+      alert("il faut choisir une case");
+      return ville_v;}
+}}
 //***************************************************/
 // CONDITIONS GENERALES
 let cg = document.getElementById("checkbox1");
