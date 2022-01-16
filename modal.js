@@ -118,17 +118,16 @@ let testDdn = ddn_v.test(birthdate.value)
 //*************************************************/
 //VERIFICATION DES BOUTONS RADIOS
 let ville = document.querySelectorAll("input[type=radio]");
-let ville_v = false
+
 let i = 0;
 
 function valid_ville(){
-  while (!ville_v && i<=5){
+  while (i<6){
     if(ville[i].checked){
-    i++;
   return true;}
-    if(!ville_v){
-      alert("il faut choisir une case");
-      return ville_v;}
+    if(!ville[i].checked){
+      alert ("Vous devez choisir une option");
+      return false;}
 }}
 //***************************************************/
 // CONDITIONS GENERALES
