@@ -122,12 +122,12 @@ let ville = document.querySelectorAll("input[type=radio]");
 let i = 0;
 
 function valid_ville(){
-  while (i<6){
+  while(i<6){
     if(ville[i].checked){
-  return true;}
+      i++;}
     if(!ville[i].checked){
       alert ("Vous devez choisir une option");
-      return false;}
+    return valid_ville;}
 }}
 //***************************************************/
 // CONDITIONS GENERALES
@@ -153,7 +153,7 @@ let modal2 = document.querySelector(".modal2");
 modal1btn.addEventListener("click", ouvertureModal2);
 
 function ouvertureModal2(){
-  if(valid_prenom() && valid_nom() && valid_email() && valid_ddn() && valid_cg() && valid_ville()==true)
+  if(valid_prenom() & valid_nom() & valid_email() & valid_ddn() & valid_cg() & valid_ville()==true)
 
     {modal1.style.display = "none";
     modal2.style.display = "block";
