@@ -117,18 +117,24 @@ let testDdn = ddn_v.test(birthdate.value)
 }
 //*************************************************/
 //VERIFICATION DES BOUTONS RADIOS
-let ville = document.querySelectorAll("input[type=radio]");
-
-let i = 0;
 
 function valid_ville(){
-  while(i<6){
-    if(ville[i].checked){
-      i++;}
-    if(!ville[i].checked){
-      alert ("Vous devez choisir une option");
-    return valid_ville;}
-}}
+  let ville = document.getElementsByName("location");
+  let ville_v = false;
+  let i = 0;
+  
+  while (!ville_v && i<ville.length){
+    if(ville[i].checked)
+      ville_v = true;
+      i++;
+      villeError.innerHTML="";
+    }
+    if (!ville_v)
+      villeError.innerHTML="vous devez choisir une option.";
+      villeError.style.color = "red";
+      villeError.style.fontSize = "0.4em";
+      return ville_v;}
+
 //***************************************************/
 // CONDITIONS GENERALES
 let cg = document.getElementById("checkbox1");
