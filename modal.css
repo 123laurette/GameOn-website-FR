@@ -570,7 +570,7 @@ footer {
     margin-top: 12px;
   }
   .hero-section{
-    height: 600px;
+    height: 650px;
   }
   .header-logo img{
     width: 50%;
@@ -597,10 +597,9 @@ footer {
     margin-top: 370px;
     margin-left: 60px;
     font-size: 16px;
-    
   }
   .copyrights{
-    font-size: 12px
+    font-size: 12px;
   }
 /*............FORMULAIRE..........*/
 .bground{
